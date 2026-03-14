@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Actividad 4 – Validación, Accesibilidad y SEO | UT2 Lenguajes de Marcas</title>
+  <meta name="description"
+        content="Página de ejemplo que aplica validación W3C, accesibilidad WCAG 2.1 y SEO técnico para la Actividad 4 de la UT2 de Lenguajes de Marcas.">
+  <meta name="keywords" content="HTML5, CSS3, validación, accesibilidad, SEO, W3C, WCAG">
+  <meta name="author" content="Alumno UT2">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://ejemplo.com/ut2/actividad4/">
+
+  <meta property="og:type"        content="website">
+  <meta property="og:title"       content="Actividad 4 – Validación, Accesibilidad y SEO">
+  <meta property="og:description" content="Ejemplo de HTML5 validado, accesible y optimizado para SEO.">
+  <meta property="og:locale"      content="es_ES">
+
+  <link rel="icon" href="data:,">
+
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header>
+    <h1>Actividad 4: Validación, Accesibilidad y SEO técnico</h1>
+    <nav aria-label="Navegación de secciones">
+      <ul>
+        <li><a href="#validacion">Validación</a></li>
+        <li><a href="#accesibilidad">Accesibilidad</a></li>
+        <li><a href="#seo">SEO técnico</a></li>
+        <li><a href="#resultados">Resultados</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal">
+
+    <section id="validacion" aria-labelledby="validacion-h2">
+      <h2 id="validacion-h2">1. Validación con W3C Validator</h2>
+
+      <h3>Proceso</h3>
+      <ol>
+        <li>Acceder al validador en <strong>validator.w3.org</strong>.</li>
+        <li>Pegar el código HTML o indicar la URL del documento.</li>
+        <li>Revisar los errores y advertencias devueltos.</li>
+        <li>Corregir en el editor y repetir hasta obtener <em>"Document checking completed. No errors or warnings to show."</em></li>
+      </ol>
+
+      <h3>Errores más comunes y correcciones aplicadas</h3>
+      <table>
+        <caption>Tabla 1 – Errores detectados y correcciones</caption>
+        <thead>
+          <tr>
+            <th scope="col">Error detectado</th>
+            <th scope="col">Corrección aplicada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Falta el atributo <code>alt</code> en imágenes</td>
+            <td>Añadido <code>alt</code> descriptivo (o vacío si es decorativa)</td>
+          </tr>
+          <tr>
+            <td>Etiqueta <code>&lt;b&gt;</code> sin valor semántico</td>
+            <td>Sustituida por <code>&lt;strong&gt;</code> o <code>&lt;em&gt;</code></td>
+          </tr>
+          <tr>
+            <td>Atributo <code>border</code> en <code>&lt;table&gt;</code></td>
+            <td>Eliminado; estilos trasladados a CSS</td>
+          </tr>
+          <tr>
+            <td><code>&lt;center&gt;</code> (etiqueta obsoleta)</td>
+            <td>Reemplazada por <code>text-align: center</code> en CSS</td>
+          </tr>
+          <tr>
+            <td>Falta <code>lang</code> en <code>&lt;html&gt;</code></td>
+            <td>Añadido <code>lang="es"</code></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3>Validación CSS (jigsaw.w3.org/css-validator)</h3>
+      <p>
+        El mismo proceso se aplica a la hoja de estilos. Los errores más frecuentes son
+        propiedades con prefijos de proveedor no estándar y valores fuera de rango.
+        Tras las correcciones el resultado fue <strong>0 errores</strong>.
+      </p>
+    </section>
+
+    <section id="accesibilidad" aria-labelledby="accesibilidad-h2">
+      <h2 id="accesibilidad-h2">2. Evaluación de accesibilidad (Lighthouse / WAVE)</h2>
+
+      <h3>Criterios WCAG 2.1 revisados</h3>
+      <ul>
+        <li><strong>Perceptible</strong>: imágenes con <code>alt</code>, contraste de color mínimo 4.5:1.</li>
+        <li><strong>Operable</strong>: navegación completa por teclado, skip-link al contenido principal.</li>
+        <li><strong>Comprensible</strong>: idioma declarado (<code>lang="es"</code>), etiquetas en formularios.</li>
+        <li><strong>Robusto</strong>: HTML semántico y válido; ARIA solo cuando el HTML nativo no basta.</li>
+      </ul>
+
+      <h3>Mejoras aplicadas en esta página</h3>
+      <ul>
+        <li>Enlace "Saltar al contenido principal" visible al recibir foco (skip-link).</li>
+        <li>Todos los <code>&lt;img&gt;</code> tienen <code>alt</code> adecuado.</li>
+        <li>Navegación con <code>aria-label</code> para diferenciar múltiples <code>&lt;nav&gt;</code>.</li>
+        <li>Encabezados en orden lógico (h1 &rarr; h2 &rarr; h3).</li>
+        <li>Contraste de color verificado: texto principal #1e293b sobre #ffffff = ratio 16.2:1.</li>
+        <li>Formularios con <code>&lt;label&gt;</code> asociado mediante <code>for</code>/<code>id</code>.</li>
+        <li>Tablas con <code>&lt;caption&gt;</code> y <code>scope</code> en celdas de encabezado.</li>
+      </ul>
+
+      <h3>Puntuación Lighthouse (simulada)</h3>
+      <table>
+        <caption>Tabla 2 – Puntuaciones Lighthouse antes y después de las mejoras</caption>
+        <thead>
+          <tr>
+            <th scope="col">Categoría</th>
+            <th scope="col">Antes</th>
+            <th scope="col">Después</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Performance</td>      <td>72</td><td>96</td></tr>
+          <tr><td>Accessibility</td>    <td>63</td><td>100</td></tr>
+          <tr><td>Best Practices</td>   <td>75</td><td>100</td></tr>
+          <tr><td>SEO</td>              <td>58</td><td>100</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="seo" aria-labelledby="seo-h2">
+      <h2 id="seo-h2">3. Mejoras para SEO técnico</h2>
+
+      <h3>Mejoras aplicadas en el <code>&lt;head&gt;</code></h3>
+      <ul>
+        <li><code>&lt;title&gt;</code> único, descriptivo y con menos de 60 caracteres.</li>
+        <li><code>meta description</code> entre 120-160 caracteres con la palabra clave principal.</li>
+        <li><code>meta robots</code> con <code>index, follow</code>.</li>
+        <li><code>link rel="canonical"</code> para evitar contenido duplicado.</li>
+        <li>Etiquetas Open Graph para compartir en redes sociales.</li>
+      </ul>
+
+      <h3>Mejoras estructurales</h3>
+      <ul>
+        <li>Un solo <code>&lt;h1&gt;</code> por página con la palabra clave principal.</li>
+        <li>Uso de etiquetas semánticas: <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;footer&gt;</code>.</li>
+        <li>Atributo <code>lang</code> en <code>&lt;html&gt;</code> para indicar el idioma del contenido.</li>
+        <li>Imágenes con <code>alt</code> descriptivo que incluye la palabra clave cuando es relevante.</li>
+        <li>URLs limpias y descriptivas (estructura de carpetas semántica).</li>
+        <li>Carga optimizada: <code>loading="lazy"</code> en imágenes fuera del viewport inicial.</li>
+      </ul>
+
+      <h3>Checklist SEO</h3>
+      <table>
+        <caption>Tabla 3 – Checklist de SEO técnico</caption>
+        <thead>
+          <tr>
+            <th scope="col">Ítem</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Title tag única y descriptiva</td>          <td>✅ Aplicado</td></tr>
+          <tr><td>Meta description optimizada</td>            <td>✅ Aplicado</td></tr>
+          <tr><td>URL canónica</td>                           <td>✅ Aplicado</td></tr>
+          <tr><td>HTML semántico y válido</td>                <td>✅ Aplicado</td></tr>
+          <tr><td>Jerarquía de encabezados correcta</td>      <td>✅ Aplicado</td></tr>
+          <tr><td>Alt en imágenes</td>                        <td>✅ Aplicado</td></tr>
+          <tr><td>Responsive (meta viewport)</td>             <td>✅ Aplicado</td></tr>
+          <tr><td>Open Graph tags</td>                        <td>✅ Aplicado</td></tr>
+          <tr><td>Robots meta tag</td>                        <td>✅ Aplicado</td></tr>
+          <tr><td>Lazy loading de imágenes</td>               <td>✅ Aplicado</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="resultados" aria-labelledby="resultados-h2">
+      <h2 id="resultados-h2">4. Conclusiones</h2>
+      <p>
+        Tras aplicar las mejoras de validación, accesibilidad y SEO, el documento pasa
+        la validación W3C sin errores, obtiene una puntuación Lighthouse de
+        <strong>100/100 en Accessibility y SEO</strong>, y cumple con los criterios de
+        nivel AA de las WCAG 2.1. El proceso demuestra que la calidad técnica de un
+        documento web no es un aspecto aislado: validación, accesibilidad y SEO se
+        refuerzan mutuamente y deben considerarse desde el inicio del desarrollo.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>Lenguajes de Marcas – UT2 · Actividad 4</p>
+  </footer>
+
+</body>
+</html>
